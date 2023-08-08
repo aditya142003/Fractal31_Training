@@ -1,0 +1,100 @@
+.navBar {
+  width: 100vw;
+  background-color: #161d21;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  justify-items: center;
+}
+.navbarFirst {
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbarSecond {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.searchBar {
+  width: 100%;
+}
+.searchBar > :nth-child(1) {
+  width: 400px;
+  height: 25px;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  text-align: center;
+}
+.inputCont {
+  height: 0vh;
+  width: 33vw;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  text-align: center;
+  background-color: #36454f;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+.inputContField {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  margin: 10px 0;
+  position: relative;
+  bottom: 30px;
+}
+.inputCont > button {
+  position: relative;
+  bottom: 20px;
+  left: 60px;
+}
+.inputContField input,
+h4 {
+  width: 80%;
+  height: 40px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 19px;
+  padding: 5px;
+}
+button {
+  height: 30px;
+  padding: 5px;
+  font-size: 12px;
+  width: 150px;
+  font-weight: 900;
+}
+input {
+  height: 25px;
+  text-align: center;
+  border-radius: 15px;
+}
+.logo {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.close {
+  position: relative;
+  left: 20px;
+  bottom: 30px;
+  padding: 5px;
+  width: 30px;
+  border: white solid 4px;
+  border-radius: 100px;
+  background-color: white;
+  color: black;
+}
+.close:hover {
+  cursor: pointer;
+}

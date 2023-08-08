@@ -1,0 +1,58 @@
+{
+  "books": [
+    {
+      "Title": "To Kill a Mockingbird",
+      "Author": "Harper Lee",
+      "ISBN": "9780061120084",
+      "Publication": "Harper Perennial Modern Classics",
+      "Image": "./Images/img1.jpeg",
+      "AvailableCount": 3,
+      "MaxCopies": 3
+    },
+    {
+      "Title": "The Great Gatsby",
+      "Author": "F. Scott Fitzgerald",
+      "ISBN": "9780743273565",
+      "Publication": "Scribner",
+      "Image": "./Images/img2.jpeg",
+      "AvailableCount": 5,
+      "MaxCopies": 5
+    },
+    {
+      "Title": "1984",
+      "Author": "George Orwell",
+      "ISBN": "9780451524935",
+      "Publication": "Signet Classics",
+      "Image": "./Images/img3.jpeg",
+      "AvailableCount": 8,
+      "MaxCopies": 8
+    },
+    {
+      "Title": "Pride and Prejudice",
+      "Author": "Jane Austen",
+      "ISBN": "9780141439518",
+      "Publication": "Penguin Classics",
+      "Image": "./Images/img4.jpeg",
+      "AvailableCount": 2,
+      "MaxCopies": 2
+    },
+    {
+      "Title": "The Hobbit",
+      "Author": "J.R.R. Tolkien",
+      "ISBN": "9780547928227",
+      "Publication": "Mariner Books",
+      "Image": "./Images/img5.jpeg",
+      "AvailableCount": 6,
+      "MaxCopies": 6
+    },
+    {
+      "Title": "Harry Potter and the Sorcerer's Stone",
+      "Author": "J.K. Rowling",
+      "ISBN": "9780590353403",
+      "Publication": "Scholastic",
+      "Image": "./Images/img6.jpeg",
+      "AvailableCount": 4,
+      "MaxCopies": 4
+    }
+  ]
+}
