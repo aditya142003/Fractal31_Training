@@ -175,27 +175,11 @@
   font-size: 20px !important;
 }
 .submitbtn {
-  height: 50px;
-  width: 100px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
-  border-radius: 5px;
-  font-size: 17px;
-  transition: 0.5s;
-}
-.submitbtn:hover {
-  cursor: pointer;
-  background-color: rgb(210, 218, 221);
-  transition: 0.5s;
-  width: 120px;
-}
-.footer > button:hover {
-  cursor: pointer;
-  background-color: rgb(210, 218, 221);
-  transition: 0.5s;
-  width: 80px;
+  font-size: 20px;
+  height: auto;
 }
 .footer {
   width: fit-content;
@@ -206,10 +190,7 @@
 }
 .footer > button {
   margin: 10px;
-  border-radius: 5px;
   width: 70px;
-  height: 30px;
-  transition: 0.5s;
 }
 .authSectionLogin {
   display: grid;
@@ -235,12 +216,6 @@
   width: auto;
   margin: auto;
 }
-.footerLogin > button:hover {
-  cursor: pointer;
-  width: 120px;
-  transition: 0.5s;
-  background-color: rgb(210, 218, 221);
-}
 .footerLogin {
   width: fit-content;
   margin-left: auto;
@@ -249,10 +224,7 @@
 }
 .footerLogin > button {
   margin: 10px;
-  border-radius: 5px;
-  height: 30px;
   width: 100px;
-  transition: 0.5s;
 }
 .inputContainerLogin {
   width: 52vw;

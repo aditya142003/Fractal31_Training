@@ -4,6 +4,7 @@ import { ReactComponent as Wave1 } from "./Images/Wave1.svg";
 import { ReactComponent as Wave2 } from "./Images/Wave2.svg";
 import { ReactComponent as Wave3 } from "./Images/Wave3.svg";
 import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
 
 function Registration() {
   const nav = useNavigate();
@@ -90,7 +91,6 @@ function Registration() {
       style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
       onClick={decHeight}
     >
-      
       <div className="mainRegCont" id="mainRegCont">
         <div className="sideCont" id="sideCont">
           <Wave1 className="Wave1" id="Wave1" />
@@ -103,7 +103,7 @@ function Registration() {
             <div className="nameSection">
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="FNinput">
-                  FIRST NAME
+                  First Name
                 </div>
                 <input
                   className="input"
@@ -115,7 +115,7 @@ function Registration() {
               </div>
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="LNinput">
-                  LAST NAME
+                  Last Name
                 </div>
                 <input
                   className="input"
@@ -128,7 +128,7 @@ function Registration() {
             <div className="addressSection">
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Ainput">
-                  ADDRESS
+                  Address
                 </div>
                 <input
                   type="text"
@@ -141,7 +141,7 @@ function Registration() {
             <div className="citySection">
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Cinput">
-                  CITY
+                  City
                 </div>
                 <input
                   className="input"
@@ -152,7 +152,7 @@ function Registration() {
               </div>
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Sinput">
-                  STATE
+                  State
                 </div>
                 <input
                   className="input"
@@ -163,7 +163,7 @@ function Registration() {
               </div>
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="COinput">
-                  COUNTRY
+                  Country
                 </div>
                 <input
                   className="input"
@@ -176,7 +176,7 @@ function Registration() {
             <div className="numberSection">
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Pinput">
-                  PINCODE
+                  Pincode
                 </div>
                 <input
                   className="input"
@@ -188,7 +188,7 @@ function Registration() {
               </div>
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Minput">
-                  MOBILE NUMBER
+                  Mobile Number
                 </div>
                 <input
                   className="input"
@@ -202,7 +202,7 @@ function Registration() {
             <div className="authSection">
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="Einput">
-                  EMAIL
+                  Email
                 </div>
                 <input
                   className="input"
@@ -214,7 +214,7 @@ function Registration() {
               </div>
               <div className="inputPair">
                 <div onClick={(event) => incHeight(event)} className="PAinput">
-                  PASSWORD
+                  Password
                 </div>
                 <input
                   className="input"
@@ -226,17 +226,26 @@ function Registration() {
                 ></input>
               </div>
             </div>
-            <button
+            <Button
+              type="primary"
+              shape="round"
               className="submitbtn"
               onClick={() => {
                 nav("/BookPage");
               }}
             >
               SUBMIT
-            </button>
+            </Button>
             <h2 className="footer">
               Already have an account
-              <button onClick={swipeToLogin}>LOGIN</button>
+              <Button
+                type="default"
+                shape="round"
+                size="small"
+                onClick={swipeToLogin}
+              >
+                LOGIN
+              </Button>
             </h2>
           </div>
         </div>
@@ -246,7 +255,7 @@ function Registration() {
             <div className="authSectionLogin">
               <div className="inputPairLogin">
                 <div onClick={(event) => incHeight(event)} className="LEinput">
-                  EMAIL
+                  Email
                 </div>
                 <input
                   className="input"
@@ -257,7 +266,7 @@ function Registration() {
               </div>
               <div className="inputPairLogin">
                 <div onClick={(event) => incHeight(event)} className="LPAinput">
-                  PASSWORD
+                  Password
                 </div>
                 <input
                   className="input"
@@ -268,17 +277,27 @@ function Registration() {
                 ></input>
               </div>
             </div>
-            <button
+            <Button
+              type="primary"
+              shape="round"
+              size="large"
               className="submitbtn"
               onClick={() => {
                 nav("/BookPage");
               }}
             >
               LOGIN
-            </button>
+            </Button>
             <h2 className="footerLogin">
               Don't have an account
-              <button onClick={swipeToReg}>Register</button>
+              <Button
+                type="default"
+                shape="round"
+                size="small"
+                onClick={swipeToReg}
+              >
+                Register
+              </Button>
             </h2>
           </div>
         </div>

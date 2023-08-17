@@ -1,6 +1,7 @@
 import "./BookPage.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "../Common/NavigationBar";
+import { Button } from "antd";
 
 function App() {
   const [booksData, setBooksData] = useState([]);
@@ -88,29 +89,43 @@ function App() {
                 <div>Publisher: {ele.Publication}</div>
                 <div>Available: {ele.AvailableCount}</div>
                 <div className="btnCont">
-                  <button
+                  <Button
+                    type="primary"
+                    size="small"
+                    shape="round"
+                    className="antButton"
                     onClick={() => {
                       issueBook(ele.ISBN);
                     }}
                     disabled={!ele.AvailableCount}
                   >
                     Issue
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    type="primary"
+                    size="small"
+                    shape="round"
+                    className="antButton"
                     onClick={() => {
                       returnBook(ele.ISBN);
                     }}
                     disabled={ele.AvailableCount === ele.MaxCopies}
+                    style={{ color: "white" }}
                   >
                     Return
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    type="primary"
+                    danger
+                    size="small"
+                    shape="round"
+                    className="antButton"
                     onClick={() => {
                       removeBook(ele.ISBN);
                     }}
                   >
                     Remove
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

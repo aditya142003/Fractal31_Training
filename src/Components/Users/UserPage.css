@@ -32,25 +32,17 @@
 .userContainer > div > div {
   padding: 10px;
 }
-.pageChange > button {
-  height: 30px;
-  font-size: 15px;
-}
 .pageChange :nth-child(1) {
   margin-left: auto;
   margin-right: 10px;
-  margin-top: 10px;
 }
 .pageChange :nth-child(2) {
   margin-left: 10px;
   margin-right: auto;
-  margin-top: 10px;
 }
 .pageChange {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-button:hover {
-  cursor: pointer;
+  margin-top: 10px;
 }

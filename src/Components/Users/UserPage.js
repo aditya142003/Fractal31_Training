@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./UserPage.css";
 import NavBar from "../Common/NavigationBar";
+import { Button } from "antd";
 
 function MoviesPage() {
-  
   const [movieData, setMovieData] = useState([]);
   const [update, setUpdate] = useState(true);
   const [page, setPage] = useState(1);
@@ -14,26 +14,33 @@ function MoviesPage() {
 
   return (
     <div className="cont">
-      <NavBar setUpdate={setUpdate} update={update} pageType="user" page={page} />
+      <NavBar
+        setUpdate={setUpdate}
+        update={update}
+        pageType="user"
+        page={page}
+      />
       <div className="pageChange">
-        <button
+        <Button
+          type="primary"
+          size="small"
           disabled={page === 1 ? true : false}
-          type="button"
           onClick={() => {
             setPage(1);
           }}
         >
           Prev Page
-        </button>
-        <button
+        </Button>
+        <Button
+          type="primary"
+          size="small"
           disabled={page === 2 ? true : false}
-          type="button"
           onClick={() => {
             setPage(2);
           }}
         >
           Next Page
-        </button>
+        </Button>
       </div>
       <div className="mainUserContainer">
         {movieData?.map((user) => {

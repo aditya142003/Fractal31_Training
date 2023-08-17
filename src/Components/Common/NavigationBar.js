@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
+import { Button, Modal, Tooltip } from "antd";
 
 function NavBar(props) {
   const nav = useNavigate();
 
   const [searchedData, setsearchedData] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputBookData, setinputBookData] = useState({
     Title: "The Palace of Illusions",
     Author: "Chitra Banerjee",
@@ -100,50 +102,62 @@ function NavBar(props) {
     } else {
       alert("Book exists");
     }
-    document.getElementById("inputCont").style.height = "0vh";
+    setIsModalOpen(false);
   }
 
-  function openForm() {
-    document.getElementById("inputCont").style.height = "90vh";
-  }
-  function closeForm() {
-    document.getElementById("inputCont").style.height = "0vh";
-  }
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="navBar">
       <div className="navbarFirst">
         <div className="logo">Digital Space</div>
-        <input
-          onChange={(e) => {
-            setsearchedData(e.target.value);
-          }}
-          placeholder="search"
-        ></input>
+        <Tooltip
+          title={
+            props.pageType === "book"
+              ? "Book-Name, Author, ISBN"
+              : "Name, Email-ID"
+          }
+        >
+          <input
+            onChange={(e) => {
+              setsearchedData(e.target.value);
+            }}
+            placeholder="search"
+          ></input>
+        </Tooltip>
       </div>
       <div className="navbarSecond">
         {props.pageType === "book" ? (
           <>
-            <button
-              onClick={(e) => {
-                openForm(e);
-              }}
+            <Button
+              type="primary"
+              onClick={showModal}
+              size="middle"
+              shape="round"
+              className="antButton"
             >
               Register Book
-            </button>
-            <div
-              className="inputCont"
-              id="inputCont"
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
+            </Button>
+            <Modal
+              title="REGISTER BOOK"
+              open={isModalOpen}
+              onOk={inputBook}
+              onCancel={handleCancel}
+              footer={[
+                <Button key="back" type="primary" danger onClick={handleCancel}>
+                  Return
+                </Button>,
+                <Button key="submit" type="primary" onClick={inputBook}>
+                  Submit
+                </Button>,
+              ]}
             >
-              <h3>
-                Register Book{" "}
-                <div onClick={closeForm} className="close">
-                  X
-                </div>
-              </h3>
               <div className="inputContField">
                 <h4>Title</h4>
                 <input
@@ -216,37 +230,46 @@ function NavBar(props) {
                   }}
                 />
               </div>
-              <button type="submit" onClick={inputBook}>
-                Submit
-              </button>
-            </div>
-            <button
+            </Modal>
+            <Button
+              type="primary"
               onClick={() => {
                 nav("/UserPage");
               }}
+              size="middle"
+              shape="round"
+              className="antButton"
             >
               Users
-            </button>
+            </Button>
           </>
         ) : (
           <>
-            <button
+            <Button
+              type="primary"
               onClick={() => {
                 nav("/BookPage");
               }}
+              size="middle"
+              shape="round"
+              className="antButton"
             >
               Books
-            </button>
+            </Button>
           </>
         )}
 
-        <button
+        <Button
+          type="primary"
+          danger
           onClick={() => {
             nav("/");
           }}
+          size="middle"
+          shape="round"
         >
           Logout
-        </button>
+        </Button>
       </div>
     </div>
   );

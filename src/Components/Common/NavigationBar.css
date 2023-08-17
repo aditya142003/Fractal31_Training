@@ -7,7 +7,7 @@
   z-index: 2;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 0.6fr;
   justify-items: center;
 }
 .navbarFirst {
@@ -39,12 +39,8 @@
 .inputCont {
   height: 0vh;
   width: 33vw;
-  position: fixed;
-  top: 50px;
-  right: 0;
   text-align: center;
-  background-color: #36454f;
-  overflow: hidden;
+  background-color: white;
   transition: 0.5s ease;
 }
 .inputContField {
@@ -52,7 +48,7 @@
   grid-template-columns: 0.4fr 1fr;
   margin: 10px 0;
   position: relative;
-  bottom: 30px;
+  /* bottom: 30px; */
 }
 .inputCont > button {
   position: relative;
@@ -97,4 +93,8 @@ input {
 }
 .close:hover {
   cursor: pointer;
+}
+.antButton{
+  margin: 5px;
+  width: 9vw;
 }
