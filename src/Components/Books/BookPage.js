@@ -1,7 +1,9 @@
 import "./BookPage.css";
 import React, { useState, useEffect } from "react";
 import NavBar from "../Common/NavigationBar";
-import { Button } from "antd";
+import { Layout, Space, Button, Col, Row } from "antd";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function App() {
   const [booksData, setBooksData] = useState([]);
@@ -73,66 +75,76 @@ function App() {
   };
 
   return (
-    <div>
-      <NavBar setUpdate={setUpdate} update={update} pageType="book" />
-      <div className="container">
-        {booksData.map((ele) => {
-          return (
-            <div className="bookCont" key={ele.Title}>
-              <div>
-                <img className="image" src={ele.Image}></img>
-              </div>
-              <div>
-                <h3>{ele.Title}</h3>
-                <div>Author: {ele.Author}</div>
-                <div>ISBN: {ele.ISBN}</div>
-                <div>Publisher: {ele.Publication}</div>
-                <div>Available: {ele.AvailableCount}</div>
-                <div className="btnCont">
-                  <Button
-                    type="primary"
-                    size="small"
-                    shape="round"
-                    className="antButton"
-                    onClick={() => {
-                      issueBook(ele.ISBN);
-                    }}
-                    disabled={!ele.AvailableCount}
-                  >
-                    Issue
-                  </Button>
-                  <Button
-                    type="primary"
-                    size="small"
-                    shape="round"
-                    className="antButton"
-                    onClick={() => {
-                      returnBook(ele.ISBN);
-                    }}
-                    disabled={ele.AvailableCount === ele.MaxCopies}
-                    style={{ color: "white" }}
-                  >
-                    Return
-                  </Button>
-                  <Button
-                    type="primary"
-                    danger
-                    size="small"
-                    shape="round"
-                    className="antButton"
-                    onClick={() => {
-                      removeBook(ele.ISBN);
-                    }}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    // <div>
+    <Space direction="vertical" style={{ width: "100%" }} size={[0, 48]}>
+      <Layout>
+        <Header>
+          <NavBar setUpdate={setUpdate} update={update} pageType="book" />
+        </Header>
+        <Content>
+          <div className="container">
+            {booksData.map((ele) => {
+              return (
+                <Row>
+                  <Col className="gutter-row bookCont" key={ele.Title}>
+                      <div>
+                        <img className="image" src={ele.Image}></img>
+                      </div>
+                      <div>
+                        <h3>{ele.Title}</h3>
+                        <div>Author: {ele.Author}</div>
+                        <div>ISBN: {ele.ISBN}</div>
+                        <div>Publisher: {ele.Publication}</div>
+                        <div>Available: {ele.AvailableCount}</div>
+                        <div className="btnCont">
+                          <Button
+                            type="primary"
+                            size="small"
+                            shape="round"
+                            className="antButton"
+                            onClick={() => {
+                              issueBook(ele.ISBN);
+                            }}
+                            disabled={!ele.AvailableCount}
+                          >
+                            Issue
+                          </Button>
+                          <Button
+                            type="primary"
+                            size="small"
+                            shape="round"
+                            className="antButton"
+                            onClick={() => {
+                              returnBook(ele.ISBN);
+                            }}
+                            disabled={ele.AvailableCount === ele.MaxCopies}
+                            style={{ color: "white" }}
+                          >
+                            Return
+                          </Button>
+                          <Button
+                            type="primary"
+                            danger
+                            size="small"
+                            shape="round"
+                            className="antButton"
+                            onClick={() => {
+                              removeBook(ele.ISBN);
+                            }}
+                          >
+                            Remove
+                          </Button>
+                        </div>
+                      </div>
+                  </Col>
+                </Row>
+              );
+            })}
+          </div>
+        </Content>
+      </Layout>
+    </Space>
+    // </div>
   );
 }
 

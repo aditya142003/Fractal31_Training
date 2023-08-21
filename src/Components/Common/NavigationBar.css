@@ -1,9 +1,10 @@
 .navBar {
   width: 100vw;
   background-color: #161d21;
-  height: 50px;
+  height: 10%;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 2;
   color: white;
   display: grid;
