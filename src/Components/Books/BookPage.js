@@ -8,6 +8,7 @@ const { Header, Footer, Sider, Content } = Layout;
 function App() {
   const [booksData, setBooksData] = useState([]);
   const [update, setUpdate] = useState(true);
+  const [bgColor, setbgColor] = useState(1);
 
   useEffect(() => {
     setBooksData(JSON.parse(localStorage.getItem("books")));
@@ -79,63 +80,72 @@ function App() {
     <Space direction="vertical" style={{ width: "100%" }} size={[0, 48]}>
       <Layout>
         <Header>
-          <NavBar setUpdate={setUpdate} update={update} pageType="book" />
+          <NavBar
+            setUpdate={setUpdate}
+            update={update}
+            pageType="book"
+            setbgColor={setbgColor}
+            bgColor={bgColor}
+          />
         </Header>
-        <Content>
+        <Content style={{ backgroundColor: `${bgColor}` }}>
           <div className="container">
             {booksData.map((ele) => {
               return (
                 <Row>
                   <Col className="gutter-row bookCont" key={ele.Title}>
-                      <div>
-                        <img className="image" src={ele.Image}></img>
+                    <div>
+                      <img className="image" src={ele.Image}></img>
+
+                      <div>Published on: </div>
+                      <div>{ele.PublishedOn}</div>
+                    </div>
+                    <div>
+                      <h3>{ele.Title}</h3>
+                      <div>Author: {ele.Author}</div>
+                      <div>ISBN: {ele.ISBN}</div>
+                      <div>Publisher: {ele.Publication}</div>
+                      <div>Available: {ele.AvailableCount}</div>
+                      <div className="btnCont">
+                        <Button
+                          type="primary"
+                          size="small"
+                          shape="round"
+                          className="antButton"
+                          onClick={() => {
+                            issueBook(ele.ISBN);
+                          }}
+                          disabled={!ele.AvailableCount}
+                        >
+                          Issue
+                        </Button>
+                        <Button
+                          type="primary"
+                          size="small"
+                          shape="round"
+                          className="antButton"
+                          onClick={() => {
+                            returnBook(ele.ISBN);
+                          }}
+                          disabled={ele.AvailableCount === ele.MaxCopies}
+                          style={{ color: "white" }}
+                        >
+                          Return
+                        </Button>
+                        <Button
+                          type="primary"
+                          danger
+                          size="small"
+                          shape="round"
+                          className="antButton"
+                          onClick={() => {
+                            removeBook(ele.ISBN);
+                          }}
+                        >
+                          Remove
+                        </Button>
                       </div>
-                      <div>
-                        <h3>{ele.Title}</h3>
-                        <div>Author: {ele.Author}</div>
-                        <div>ISBN: {ele.ISBN}</div>
-                        <div>Publisher: {ele.Publication}</div>
-                        <div>Available: {ele.AvailableCount}</div>
-                        <div className="btnCont">
-                          <Button
-                            type="primary"
-                            size="small"
-                            shape="round"
-                            className="antButton"
-                            onClick={() => {
-                              issueBook(ele.ISBN);
-                            }}
-                            disabled={!ele.AvailableCount}
-                          >
-                            Issue
-                          </Button>
-                          <Button
-                            type="primary"
-                            size="small"
-                            shape="round"
-                            className="antButton"
-                            onClick={() => {
-                              returnBook(ele.ISBN);
-                            }}
-                            disabled={ele.AvailableCount === ele.MaxCopies}
-                            style={{ color: "white" }}
-                          >
-                            Return
-                          </Button>
-                          <Button
-                            type="primary"
-                            danger
-                            size="small"
-                            shape="round"
-                            className="antButton"
-                            onClick={() => {
-                              removeBook(ele.ISBN);
-                            }}
-                          >
-                            Remove
-                          </Button>
-                        </div>
-                      </div>
+                    </div>
                   </Col>
                 </Row>
               );

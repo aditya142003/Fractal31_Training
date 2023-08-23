@@ -6,6 +6,7 @@
       "ISBN": "9780061120084",
       "Publication": "Harper Perennial Modern Classics",
       "Image": "./Images/img1.jpeg",
+      "PublishedOn" : "July 11, 1960",
       "AvailableCount": 3,
       "MaxCopies": 3
     },
@@ -15,6 +16,7 @@
       "ISBN": "9780743273565",
       "Publication": "Scribner",
       "Image": "./Images/img2.jpeg",
+      "PublishedOn" : "April 10, 1925",
       "AvailableCount": 5,
       "MaxCopies": 5
     },
@@ -24,6 +26,7 @@
       "ISBN": "9780451524935",
       "Publication": "Signet Classics",
       "Image": "./Images/img3.jpeg",
+      "PublishedOn" : "June 8, 1949",
       "AvailableCount": 8,
       "MaxCopies": 8
     },
@@ -33,6 +36,7 @@
       "ISBN": "9780141439518",
       "Publication": "Penguin Classics",
       "Image": "./Images/img4.jpeg",
+      "PublishedOn" : "January 28, 1813",
       "AvailableCount": 2,
       "MaxCopies": 2
     },
@@ -42,6 +46,7 @@
       "ISBN": "9780547928227",
       "Publication": "Mariner Books",
       "Image": "./Images/img5.jpeg",
+      "PublishedOn" : "September 21, 1937",
       "AvailableCount": 6,
       "MaxCopies": 6
     },
@@ -51,6 +56,7 @@
       "ISBN": "9780590353403",
       "Publication": "Scholastic",
       "Image": "./Images/img6.jpeg",
+      "PublishedOn" : "June 26, 1997",
       "AvailableCount": 4,
       "MaxCopies": 4
     }

@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
-import { Button, Modal, Tooltip } from "antd";
+import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import {
+  Button,
+  Modal,
+  Tooltip,
+  Form,
+  Input,
+  Upload,
+  InputNumber,
+  DatePicker,
+} from "antd";
+import dayjs from "dayjs";
+import { values } from "lodash";
 
 function NavBar(props) {
   const nav = useNavigate();
+
+  const onChangeDate = (date, dateString) => {
+    console.log(dateString);
+    setinputBookData({
+      ...inputBookData,
+      PublishedOn: dateString,
+    });
+  };
 
   const [searchedData, setsearchedData] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +35,7 @@ function NavBar(props) {
     Publication: "DoubleDay",
     Image:
       "https://th.bing.com/th/id/OIP.nv1w_K4BEVEUFJTwLkkwcQHaLe?w=137&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    PublishedOn: "01/01/2023",
     AvailableCount: "10",
     MaxCopies: "10",
   });
@@ -87,6 +108,7 @@ function NavBar(props) {
   }, [searchedData, props.page]);
 
   async function inputBook() {
+    console.log(inputBookData);
     let flag = 0;
     let arr = JSON.parse(localStorage.getItem("books"));
     arr.forEach((ele) => {
@@ -158,78 +180,97 @@ function NavBar(props) {
                 </Button>,
               ]}
             >
-              <div className="inputContField">
-                <h4>Title</h4>
-                <input
-                  value={inputBookData.Title}
+              <Form
+                layout="horizontal"
+                labelCol={{ flex: "110px" }}
+                labelAlign="left"
+                labelWrap
+                wrapperCol={{ flex: 1 }}
+                colon={false}
+                style={{ maxWidth: 600 }}
+              >
+                <Form.Item label="Title">
+                  <Input
+                    value={inputBookData.Title}
+                    onChange={(e) => {
+                      setinputBookData({
+                        ...inputBookData,
+                        Title: e.target.value,
+                      });
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item label="Author">
+                  <Input
+                    value={inputBookData.Author}
+                    onChange={(e) => {
+                      setinputBookData({
+                        ...inputBookData,
+                        Author: e.target.value,
+                      });
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item label="ISBN">
+                  <Input
+                    value={inputBookData.ISBN}
+                    onChange={(e) => {
+                      setinputBookData({
+                        ...inputBookData,
+                        ISBN: e.target.value,
+                      });
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item label="Publication">
+                  <Input
+                    value={inputBookData.Publication}
+                    onChange={(e) => {
+                      setinputBookData({
+                        ...inputBookData,
+                        Publication: e.target.value,
+                      });
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item label="Published on">
+                  <DatePicker
+                    onChange={onChangeDate}
+                    defaultValue={dayjs(
+                      inputBookData.PublishedOn,
+                      "DD/MM/YYYY"
+                    )}
+                    format={"DD/MM/YYYY"}
+                  />
+                </Form.Item>
+                <Form.Item label="Available">
+                  <InputNumber
+                    value={inputBookData.AvailableCount}
+                    onChange={(e) => {
+                      setinputBookData({
+                        ...inputBookData,
+                        AvailableCount: e.target.value,
+                        MaxCopies: e.target.vaue,
+                      });
+                    }}
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="Image"
+                  name={"profilePicture"}
                   onChange={(e) => {
                     setinputBookData({
                       ...inputBookData,
-                      Title: e.target.value,
+                      Image: e.target,
                     });
                   }}
-                />
-                <h4>Author</h4>
-                <input
-                  value={inputBookData.Author}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      Author: e.target.value,
-                    });
-                  }}
-                />
-                <h4>ISBN</h4>
-                <input
-                  value={inputBookData.ISBN}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      ISBN: e.target.value,
-                    });
-                  }}
-                />
-                <h4>Publication</h4>
-                <input
-                  value={inputBookData.Publication}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      Publication: e.target.value,
-                    });
-                  }}
-                />
-                <h4>Image</h4>
-                <input
-                  value={inputBookData.Image}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      Image: e.target.value,
-                    });
-                  }}
-                />
-                <h4>Available Count</h4>
-                <input
-                  value={inputBookData.AvailableCount}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      AvailableCount: e.target.value,
-                    });
-                  }}
-                />
-                <h4>Maximum Copies</h4>
-                <input
-                  value={inputBookData.MaxCopies}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      MaxCopies: e.target.value,
-                    });
-                  }}
-                />
-              </div>
+                  type="file"
+                >
+                  <Upload>
+                    <Button icon={<UploadOutlined />}>Upload</Button>
+                  </Upload>
+                </Form.Item>
+              </Form>
             </Modal>
             <Button
               type="primary"
