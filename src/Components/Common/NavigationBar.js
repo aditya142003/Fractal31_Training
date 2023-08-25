@@ -1,44 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavigationBar.css";
-import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Modal,
-  Tooltip,
-  Form,
-  Input,
-  Upload,
-  InputNumber,
-  DatePicker,
-} from "antd";
-import dayjs from "dayjs";
-import { values } from "lodash";
+import { Button, Tooltip } from "antd";
 
 function NavBar(props) {
   const nav = useNavigate();
 
-  const onChangeDate = (date, dateString) => {
-    console.log(dateString);
-    setinputBookData({
-      ...inputBookData,
-      PublishedOn: dateString,
-    });
-  };
-
   const [searchedData, setsearchedData] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [inputBookData, setinputBookData] = useState({
-    Title: "The Palace of Illusions",
-    Author: "Chitra Banerjee",
-    ISBN: "9780307472496",
-    Publication: "DoubleDay",
-    Image:
-      "https://th.bing.com/th/id/OIP.nv1w_K4BEVEUFJTwLkkwcQHaLe?w=137&h=213&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    PublishedOn: "01/01/2023",
-    AvailableCount: "10",
-    MaxCopies: "10",
-  });
 
   useEffect(() => {
     let temp = [];
@@ -107,211 +75,24 @@ function NavBar(props) {
           .catch((err) => console.log(err));
   }, [searchedData, props.page]);
 
-  async function inputBook() {
-    console.log(inputBookData);
-    let flag = 0;
-    let arr = JSON.parse(localStorage.getItem("books"));
-    arr.forEach((ele) => {
-      if (ele.ISBN === inputBookData.ISBN) {
-        flag = 1;
-      }
-    });
-    if (!flag) {
-      arr.push(inputBookData);
-      localStorage.clear();
-      localStorage.setItem("books", JSON.stringify(arr));
-      props.setUpdate(!props.update);
-    } else {
-      alert("Book exists");
-    }
-    setIsModalOpen(false);
-  }
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div className="navBar">
-      <div className="navbarFirst">
-        <div className="logo">Digital Space</div>
-        <Tooltip
-          title={
-            props.pageType === "book"
-              ? "Book-Name, Author, ISBN"
-              : "Name, Email-ID"
-          }
-        >
-          <input
-            onChange={(e) => {
-              setsearchedData(e.target.value);
-            }}
-            placeholder="search"
-          ></input>
-        </Tooltip>
-      </div>
-      <div className="navbarSecond">
-        {props.pageType === "book" ? (
-          <>
-            <Button
-              type="primary"
-              onClick={showModal}
-              size="middle"
-              shape="round"
-              className="antButton"
-            >
-              Register Book
-            </Button>
-            <Modal
-              title="REGISTER BOOK"
-              open={isModalOpen}
-              onOk={inputBook}
-              onCancel={handleCancel}
-              footer={[
-                <Button key="back" type="primary" danger onClick={handleCancel}>
-                  Return
-                </Button>,
-                <Button key="submit" type="primary" onClick={inputBook}>
-                  Submit
-                </Button>,
-              ]}
-            >
-              <Form
-                layout="horizontal"
-                labelCol={{ flex: "110px" }}
-                labelAlign="left"
-                labelWrap
-                wrapperCol={{ flex: 1 }}
-                colon={false}
-                style={{ maxWidth: 600 }}
-              >
-                <Form.Item label="Title">
-                  <Input
-                    value={inputBookData.Title}
-                    onChange={(e) => {
-                      setinputBookData({
-                        ...inputBookData,
-                        Title: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item label="Author">
-                  <Input
-                    value={inputBookData.Author}
-                    onChange={(e) => {
-                      setinputBookData({
-                        ...inputBookData,
-                        Author: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item label="ISBN">
-                  <Input
-                    value={inputBookData.ISBN}
-                    onChange={(e) => {
-                      setinputBookData({
-                        ...inputBookData,
-                        ISBN: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item label="Publication">
-                  <Input
-                    value={inputBookData.Publication}
-                    onChange={(e) => {
-                      setinputBookData({
-                        ...inputBookData,
-                        Publication: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item label="Published on">
-                  <DatePicker
-                    onChange={onChangeDate}
-                    defaultValue={dayjs(
-                      inputBookData.PublishedOn,
-                      "DD/MM/YYYY"
-                    )}
-                    format={"DD/MM/YYYY"}
-                  />
-                </Form.Item>
-                <Form.Item label="Available">
-                  <InputNumber
-                    value={inputBookData.AvailableCount}
-                    onChange={(e) => {
-                      setinputBookData({
-                        ...inputBookData,
-                        AvailableCount: e.target.value,
-                        MaxCopies: e.target.vaue,
-                      });
-                    }}
-                  />
-                </Form.Item>
-                <Form.Item
-                  label="Image"
-                  name={"profilePicture"}
-                  onChange={(e) => {
-                    setinputBookData({
-                      ...inputBookData,
-                      Image: e.target,
-                    });
-                  }}
-                  type="file"
-                >
-                  <Upload>
-                    <Button icon={<UploadOutlined />}>Upload</Button>
-                  </Upload>
-                </Form.Item>
-              </Form>
-            </Modal>
-            <Button
-              type="primary"
-              onClick={() => {
-                nav("/UserPage");
-              }}
-              size="middle"
-              shape="round"
-              className="antButton"
-            >
-              Users
-            </Button>
-          </>
-        ) : (
-          <>
-            <Button
-              type="primary"
-              onClick={() => {
-                nav("/BookPage");
-              }}
-              size="middle"
-              shape="round"
-              className="antButton"
-            >
-              Books
-            </Button>
-          </>
-        )}
-
-        <Button
-          type="primary"
-          danger
-          onClick={() => {
-            nav("/");
+      <div className="logo">Digital Space</div>
+      <Tooltip
+        title={
+          props.pageType === "book"
+            ? "Book-Name, Author, ISBN"
+            : "Name, Email-ID"
+        }
+      >
+        <input
+          onChange={(e) => {
+            setsearchedData(e.target.value);
           }}
-          size="middle"
-          shape="round"
-        >
-          Logout
-        </Button>
-      </div>
+          placeholder="search"
+          style={{ width: "15vw" }}
+        ></input>
+      </Tooltip>
     </div>
   );
 }

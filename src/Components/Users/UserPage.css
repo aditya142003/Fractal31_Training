@@ -1,15 +1,18 @@
 .cont {
   position: relative;
-  top: 50px;
+  top: 80px;
+  left: 7vw;
 }
 .mainUserContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 80vw;
+  position: relative;
+  left: 9.5vw;
 }
 .userContainer {
-  /* border: solid 1px; */
   background-color: #36454f;
-  width: 40vw;
+  width: 35vw;
   height: 30vh;
   display: grid;
   grid-template-columns: 0.7fr 1fr;

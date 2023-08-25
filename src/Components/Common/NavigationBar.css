@@ -10,33 +10,9 @@
   display: grid;
   grid-template-columns: 1fr 0.6fr;
   justify-items: center;
-}
-.navbarFirst {
-  width: 50vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
   align-items: center;
 }
-.navbarSecond {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-}
-.searchBar {
-  width: 100%;
-}
-.searchBar > :nth-child(1) {
-  width: 400px;
-  height: 25px;
-  display: flex;
-  margin: auto;
-  margin-top: 20px;
-  font-size: 18px;
-  border-radius: 8px;
-  text-align: center;
-}
+
 .inputCont {
   height: 0vh;
   width: 33vw;
@@ -76,26 +52,9 @@ input {
   height: 25px;
   text-align: center;
   border-radius: 15px;
+  /* width: 15vw; */
 }
 .logo {
   font-size: 30px;
   text-transform: uppercase;
-}
-.close {
-  position: relative;
-  left: 20px;
-  bottom: 30px;
-  padding: 5px;
-  width: 30px;
-  border: white solid 4px;
-  border-radius: 100px;
-  background-color: white;
-  color: black;
-}
-.close:hover {
-  cursor: pointer;
-}
-.antButton{
-  margin: 5px;
-  width: 9vw;
 }
