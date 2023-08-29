@@ -20,12 +20,6 @@
   margin: auto;
   margin-top: 30px;
 }
-.userContainer > img {
-  border-radius: 10px;
-  width: 150px;
-  height: auto;
-  margin: auto;
-}
 .userContainer > div {
   color: white;
   font-weight: 500;
@@ -48,4 +42,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 10px;
+}
+
+.userImage{
+  border-radius: 10px;
+  width: 150px;
+  height: auto;
+  margin: auto;
 }
