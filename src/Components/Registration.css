@@ -1,0 +1,239 @@
+.mainRegCont {
+    display: flex;
+    height: 100vh;
+    width: 170vw;
+    color: #36454f;
+    background-color: #8ec3b8;
+  }
+  .sideCont {
+    width: 29vw;
+    height: 100vh;
+    background-color: #24404b;
+    position: relative;
+    right: 0;
+    z-index: 5;
+    transition: 1s ease-in;
+    transform: scaleX(0deg);
+    transform-style: preserve-3d;
+  }
+  .registerCont {
+    width: 60vw;
+    height: 100vh;
+    background-color: #8ec3b8;
+    position: relative;
+    right: -10vw;
+    z-index: 2;
+    transition: 1s ease-in-out;
+    z-index: 2;
+  }
+  .loginCont {
+    width: 60vw;
+    height: 100vh;
+    background-color: #8ec3b8;
+    position: relative;
+    right: 70vw;
+    transition: 1s ease-in-out;
+    z-index: 1;
+    visibility: hidden;
+  }
+  .Wave1,
+  .Wave2,
+  .Wave3 {
+    width: 100vh;
+    rotate: 90deg;
+    position: relative;
+    transition: 1s ease-in-out;
+  }
+  .Wave1 {
+    z-index: 3;
+    left: 23%;
+    top: 39%;
+    transform: scaleY(0deg);
+    transform-style: preserve-3d;
+  }
+  
+  .Wave2 {
+    z-index: 2;
+    left: 24%;
+    top: 16%;
+    transform: scaleY(0deg);
+    transform-style: preserve-3d;
+  }
+  .Wave3 {
+    z-index: 1;
+    left: 24%;
+    top: -7%;
+    transform: scaleY(0deg);
+    transform-style: preserve-3d;
+  }
+  .heading {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+  }
+  .nameSection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+  }
+  .nameSection > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .nameSection > div,
+  .addressSection > div,
+  .citySection > div,
+  .numberSection > div,
+  .authSection > div {
+    width: 20vw;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .inputPair {
+    display: flex;
+    flex-direction: column;
+  }
+  .addressSection {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+  }
+  .addressSection > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .addressSection > div {
+    width: 50vw;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .citySection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+  }
+  .citySection > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .citySection > div {
+    width: 13vw;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .numberSection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+  }
+  .numberSection > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .authSection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+  }
+  .authSection > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .inputContainer {
+    width: 52vw;
+    margin: auto;
+    height: 70vh;
+    color: rgba(255, 255, 255, 0.721);
+    background-color: #24404b;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 0.3fr 0.3fr;
+    padding-top: 10px;
+  }
+  .input {
+    height: 1px;
+    background-color: #ffffff;
+    border: none;
+    transition: 0.5s ease;
+    font-size: 20px !important;
+  }
+  .submitbtn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    font-size: 20px;
+    height: auto;
+  }
+  .footer {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .footer > button {
+    margin: 10px;
+    width: 70px;
+  }
+  .authSectionLogin {
+    display: grid;
+    width: 50%;
+    justify-content: space-between;
+    position: relative;
+    align-items: end;
+    height: 30vh;
+    margin: auto;
+    padding-top: 80px;
+  }
+  .authSectionLogin > div > div {
+    font-size: 25px;
+    transition: 0.5s ease;
+  }
+  .authSectionLogin > div {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .inputPairLogin {
+    width: auto;
+    margin: auto;
+  }
+  .footerLogin {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+  }
+  .footerLogin > button {
+    margin: 10px;
+    width: 100px;
+  }
+  .inputContainerLogin {
+    width: 52vw;
+    margin: auto;
+    height: 70vh;
+    color: rgba(255, 255, 255, 0.721);
+    background-color: #24404b;
+    border-radius: 20px;
+    padding-top: 10px;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 0.2fr;
+  }
