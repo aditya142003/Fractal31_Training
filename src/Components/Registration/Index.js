@@ -1,8 +1,8 @@
 import React from "react";
-import "./Registration.css";
-import { ReactComponent as Wave1 } from "./Images/Wave1.svg";
-import { ReactComponent as Wave2 } from "./Images/Wave2.svg";
-import { ReactComponent as Wave3 } from "./Images/Wave3.svg";
+import "../assets/Registration.css";
+import { ReactComponent as Wave1 } from "../assets/Images/Wave1.svg";
+import { ReactComponent as Wave2 } from "../assets/Images/Wave2.svg";
+import { ReactComponent as Wave3 } from "../assets/Images/Wave3.svg";
 import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 
